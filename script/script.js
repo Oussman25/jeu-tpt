@@ -1,4 +1,4 @@
-let classPlayer = {
+const classPlayer = {
     "Mage": { name: "Mage", pv : 80, def : 0.1, att : 20, 
         sp : function mageAttSpecial(player, otherplayer) {
         otherplayer.pv -= 50
@@ -6,15 +6,23 @@ let classPlayer = {
         UpdatePV() 
     }},
     "Guerrier": { name: "Guerrier",  pv : 120, def : 0.2, att : 15, 
-        sp : function guerrierAttSpecial(player) {
+        sp : function guerrierAttSpecial(player, otherplayer) {
         // player.def = 80
         // player.att = 30
         console.log("att despi");
         UpdatePV()
     }},
     "Pretre": { name: "Pretre", pv : 150, def : 0.3, att : 10, 
-        sp : function pretreAttSpecial(player) {
-        player.pv += 100
+        sp : function pretreAttSpecial(player, otherplayer) {
+        let newpv = player.pv + 75
+        if (newpv < 150){
+            player.pv = newpv
+        }
+        else {
+            let diffpv = newpv - 150
+            player.pv = newpv - diffpv
+        }
+        console.log(player.pv);
         compteurDeTour += 1
         UpdatePV()
     }},
@@ -35,7 +43,8 @@ let pvJ1initial
 let pvJ2initial
 let compteurDeTour = 0
 let tourPrecedent = 0
-let compteurSP = 2
+let compteurSP1 = 2
+let compteurSP2 = 2
 
 const start = document.querySelector("#start")
 const startPage = document.querySelector(".startPage")
@@ -53,6 +62,7 @@ const attChoiceJ2 = document.querySelectorAll(".joueur2 button")
 const pvJ1 = document.querySelector(".barrepvJ1")
 const pvJ2 = document.querySelector(".barrepvJ2")
 const attSP = document.querySelector("#Attaque-Speciale")
+const attSP2 = document.querySelector("#Attaque-Speciale2")
 
 
 start.addEventListener("click", () => {
@@ -64,7 +74,10 @@ start.addEventListener("click", () => {
 btnChoiceJ1.forEach(button => {
     button.addEventListener("click", () => {
  //       console.log(button.id);
-        player1 = classPlayer[button.id]
+        for (let key in classPlayer[button.id]) {
+            player1[key] = classPlayer[button.id][key];
+        }
+        // player1 = classPlayer[button.id]
         choiceJ1.style.display = "none"
         choiceJ2.style.display = "flex"
   //      console.log(`joueur 1 classe choisie est: ${player1.name}`);
@@ -76,7 +89,10 @@ btnChoiceJ1.forEach(button => {
 btnChoiceJ2.forEach(button => {
     button.addEventListener("click", () => {
   //      console.log(button.id);
-        player2 = classPlayer[button.id]
+        for (let key in classPlayer[button.id]) {
+            player2[key] = classPlayer[button.id][key];
+        }
+  //      player2 = classPlayer[button.id]
         choiceJ2.style.display = "none"
         gamePage.style.display = "flex"        
   //      console.log(`joueur 2 classe choisie est: ${player2.name}`);
@@ -88,22 +104,24 @@ btnChoiceJ2.forEach(button => {
 attChoiceJ1.forEach(button => {
     button.addEventListener("click", () => {
         if (button.id == "Attaque-Normal"){
-            player2.pv -= player1.att
-    //        console.log(button.id + " et "+ player2.pv);
-            if (compteurSP != 2){
-                compteurSP ++
-                console.log(compteurSP);
+            player2.pv -= player1.att;
+            if (compteurSP1 != 2){
+                compteurSP1 ++
+   //             console.log(compteurSP1);
             }
-            if (compteurSP == 2){
+            if (compteurSP1 == 2){
                 attSP.disabled = false
             }
+   //         console.log(button.id + " et "+ player2.pv)
         }
         if (button.id == "Attaque-Speciale"){
             player1.sp(player1,player2)
-            button.disabled = true
-            compteurSP = 0
-    //        console.log(button.id + " et "+ player2.pv);
+            attSP.disabled = true
+            compteurSP1 = 0
+            console.log(compteurSP1);
+            console.log(button.id + " et "+ player2.pv);
         }
+        console.log(player1);
         compteurDeTour += 1
 
         UpdatePV()
@@ -121,22 +139,26 @@ attChoiceJ2.forEach(button => {
     button.addEventListener("click", () => {
         if (button.id == "Attaque-Normal"){
             player1.pv -= player2.att 
-            if (compteurSP != 2){
-                compteurSP ++
-                console.log(compteurSP);
+            if (compteurSP2 != 2){
+                compteurSP2 ++
+  //              console.log(compteurSP2);
             }
-            if (compteurSP == 2){
-                attSP.disabled = false
+            if (compteurSP2 == 2){
+                attSP2.disabled = false
+
             }
- //           console.log(button.id + " et "+ player1.pv);
+  //          console.log(button.id + " et "+ player1.pv);
         }
-        if (button.id == "Attaque-Speciale"){
+        if (button.id == "Attaque-Speciale2"){
             player2.sp(player2,player1)
-            button.disabled = true
-            compteurSP = 0
- //           console.log(button.id + " et "+ player1.pv);
+            attSP2.disabled = true
+            compteurSP2 = 0
+            console.log(compteurSP2);
+            console.log(button.id + " et "+ player1.pv);
         }
+        console.log(player2);
         compteurDeTour += 1
+
         UpdatePV()
         if (compteurDeTour > tourPrecedent){    
             tourPrecedent = compteurDeTour  
