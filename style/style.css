@@ -1,0 +1,184 @@
+.startPage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+#start{
+    width: 150px;
+    height: 50px;
+}
+
+.choiceJ1{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choiceJ1 h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.choiceJ2{
+    color: white;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choiceJ2 h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.choice {
+    width: 60vw;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5vw;
+}
+
+.choice button{
+    border: 2px solid black;
+    color: black;
+    background-color: white;
+    width: 25vw;
+    height: 150px;
+}
+
+.choice button:hover{
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+}
+
+.choiceJ2 button{
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    width: 25vw;
+    height: 150px;
+}
+
+.choiceJ2 button:hover{
+    border: 2px solid black;
+    color: black;
+    background-color: white;
+}
+
+
+.gamePage {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+.etatJ1{
+    width: 50%;
+}
+
+.joueur1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.pvJ1{
+    width: 90%;
+    height: 50px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+.pvJ1 div{
+    background-color: green;
+    height: 80%;
+}
+
+.etatJ2{
+    width: 50%;
+    background-color: red;
+}
+
+.joueur2{
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.pvJ2{
+    width: 90%;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.pvJ2 div{
+    background-color: green;
+    height: 80%;
+}
+
+
+.attaque{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.attaque button{
+    width: 200px;
+    height: 100px;
+}
+
+.joueur1 button{
+    background-color: white;
+    border: 2px solid black ;
+}
+
+.joueur1 button:hover{
+    background-color: black;
+    border: 2px solid white ;
+    color: white;
+}
+
+.joueur2 button{
+    background-color: black;
+    border: 2px solid white ;
+    color: white;
+}
+
+.joueur2 button:hover{
+    background-color: white;
+    border: 2px solid black ;
+    color: black;
+}
+
+#Attaque-Speciale-Desactive{
+    display: none;
+}
