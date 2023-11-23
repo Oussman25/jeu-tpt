@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bebas" type="text/css"/>
 </head>
 <body>
 
     <section class="startPage">
-        <h1>OUSSGAME 1</h1>
+        <div>
+            <h1 style="font-size: 10em; margin: 0;">OUSSGAME</h1>
+            <p style="margin: 0;">by Oussman SOARE ©</p>
+        </div>
         <button id="start">START</button>
     </section>
 
     <section class="choiceJ1">
-        <h2>JOUEUR 1</h2>
+        <input id="selectNameJ1" type="text" value="JOUEUR 1">
         <div class="choice">
             <button id="Mage">Mage</button>
             <button id="Guerrier">Guerrier</button>
@@ -24,7 +28,7 @@
     </section>
 
     <section class="choiceJ2">
-        <h2>JOUEUR 2</h2>
+        <input id="selectNameJ2" type="text" value="JOUEUR 2">
         <div class="choice">
             <button id="Mage">Mage</button>
             <button id="Guerrier">Guerrier</button>
@@ -36,7 +40,10 @@
     <section class="gamePage">
         <div class="etatJ1">
             <div class="joueur1">
-                <h2>JOUEUR 1</h2>
+                <div>
+                    <h2 id="afficheNameJ1" style="font-size: 3em;"></h2>
+                    <h3 id="afficheClassJ1" style="font-size: 2em;"></h3>
+                </div>
                 <div class="pvJ1">
                     <div class="barrepvJ1"></div>
                 </div>
@@ -48,7 +55,10 @@
         </div>
         <div class="etatJ2">
             <div class="joueur2">
-                <h2>JOUEUR 2</h2>
+                <div>
+                    <h2 id="afficheNameJ2" style="font-size: 3em;"></h2>
+                    <h3 id="afficheClassJ2" style="font-size: 2em;"></h3>
+                </div>
                 <div class="pvJ2">
                     <div class="barrepvJ2"></div>
                 </div>
@@ -58,6 +68,15 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="gameOver">
+            <div>
+                <h2 style="font-size: 10em; margin: 0;">GAME OVER</h2>
+                <p id="winner" style="font-size: 2em; margin: 0; text-align: center;" ></p>
+            </div>
+            <input type="button" onclick='window.location.reload(false)' value="Rejouer"/>
+            
+            
     </section>
 
     <script src="script/script.js"></script>

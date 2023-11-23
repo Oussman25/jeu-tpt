@@ -1,7 +1,15 @@
+body{
+    font-family: 'BebasNeueRegular';
+    font-weight: normal;
+    font-style: normal;
+    margin: 0;
+}
+
 .startPage{
     width: 100vw;
     height: 100vh;
     display: flex;
+    text-align: center;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
@@ -10,6 +18,14 @@
 #start{
     width: 150px;
     height: 50px;
+    font-family: 'BebasNeueRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3em;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .choiceJ1{
@@ -82,6 +98,20 @@
     background-color: white;
 }
 
+input{
+    text-align: center;
+    font-family: 'BebasNeueRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 3em;
+    border: none;
+    outline: none;
+}
+
+#selectNameJ2{
+    color: white;
+    background-color: black;
+}
 
 .gamePage {
     display: none;
@@ -112,6 +142,9 @@
 .pvJ1 div{
     background-color: green;
     height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .etatJ2{
@@ -141,6 +174,9 @@
 .pvJ2 div{
     background-color: green;
     height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -154,6 +190,11 @@
 .attaque button{
     width: 200px;
     height: 100px;
+}
+
+#Attaque-Speciale:disabled ,#Attaque-Speciale2:disabled{
+    color: black;
+    background-color: red;
 }
 
 .joueur1 button{
@@ -178,3 +219,25 @@
     border: 2px solid black ;
     color: black;
 }
+
+.joueur1 div, .joueur2 div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameOver{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gameOver input{
+    width: 150px;
+    height: 50px;
+}
+
