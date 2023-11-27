@@ -236,12 +236,12 @@ function UpdatePV() {
         pvJ1.style.width = `0%`
         gamePage.style.display = "none"
         gameOver.style.display = "flex"
-        Winner.innerHTML = nameJ1 + " a gagné la partie"
+        Winner.innerHTML = nameJ2 + " a gagné la partie"
     }
     else if(player2.pv < 0) {
         pvJ2.style.width = `0%`
         gamePage.style.display = "none"
         gameOver.style.display = "flex"
-        Winner.innerHTML = nameJ2 + " a gagné la partie"
+        Winner.innerHTML = nameJ1 + " a gagné la partie"
     }
 }
